@@ -1,5 +1,6 @@
 import {
   ColumnDef,
+  ColumnSizingState,
   createColumnHelper,
   getCoreRowModel,
   SortingState,
@@ -164,7 +165,11 @@ export default function BotResultsTable(props: BotResultsTableProps) {
       {},
     );
 
-  const [columnSizing, setColumnSizing] = useState({});
+  const [columnSizing, setColumnSizing] =
+    useStateWithLocalStorage<ColumnSizingState>(
+      "Bot_BotResultsTable_ColumnSizing",
+      {},
+    );
 
   const [isWatchGamesModalOpen, setIsWatchGamesModalOpen] = useState(false);
   const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false);
@@ -537,7 +542,7 @@ export default function BotResultsTable(props: BotResultsTableProps) {
 
     state: {
       columnVisibility: columnVisibility ?? {},
-      columnSizing,
+      columnSizing: columnSizing ?? {},
       sorting,
     },
     onColumnVisibilityChange: (updater) => {
@@ -548,7 +553,12 @@ export default function BotResultsTable(props: BotResultsTableProps) {
 
       setColumnVisibility(next);
     },
-    onColumnSizingChange: setColumnSizing,
+    onColumnSizingChange: (updater) => {
+      const next =
+        typeof updater === "function" ? updater(columnSizing ?? {}) : updater;
+
+      setColumnSizing(next);
+    },
     onSortingChange: (updater) => {
       setSorting((prev) => {
         const next = typeof updater === "function" ? updater(prev) : updater;
@@ -690,7 +700,7 @@ export default function BotResultsTable(props: BotResultsTableProps) {
             columns={columns as unknown as ColumnDef<BotResultsRow, unknown>[]}
             state={{
               columnVisibility: columnVisibility ?? {},
-              columnSizing,
+              columnSizing: columnSizing ?? {},
             }}
             onState={{
               setColumnVisibility: (updater) => {
@@ -700,7 +710,13 @@ export default function BotResultsTable(props: BotResultsTableProps) {
                     : updater;
                 setColumnVisibility(next);
               },
-              setColumnSizing,
+              setColumnSizing: (updater) => {
+                const next =
+                  typeof updater === "function"
+                    ? updater(columnSizing ?? {})
+                    : updater;
+                setColumnSizing(next);
+              },
             }}
             exposeRefetch={(fn) => {
               refetchFnRef.current = fn;
