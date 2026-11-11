@@ -1,4 +1,4 @@
-<!-- lex: собран из /home/aisee/.claude/codex/manifest/git-aiarena%2Dweb-aiarena-graphql-CLAUDE.md.yaml. Правь фрагменты в /home/aisee/.claude/codex/frag и запусти `lex build --codex /home/aisee/.claude/codex`; правку прямо в этом файле перенеси во фрагменты: `lex absorb --codex /home/aisee/.claude/codex <этот файл>` -->
+<!-- lex: собран из ~/.claude/codex/manifest/git-aiarena%2Dweb-aiarena-graphql-CLAUDE.md.yaml. Правь фрагменты в ~/.claude/codex/frag и запусти `lex build --codex ~/.claude/codex`; правку прямо в этом файле перенеси во фрагменты: `lex absorb --codex ~/.claude/codex <этот файл>` -->
 # GraphQL API (graphene)
 
 The GraphQL schema, types, and mutations live here (graphene-django). The REST
