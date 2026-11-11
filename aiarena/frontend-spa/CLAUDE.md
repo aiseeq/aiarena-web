@@ -1,3 +1,4 @@
+<!-- lex: собран из /home/aisee/.claude/codex/manifest/git-aiarena%2Dweb-aiarena-frontend%2Dspa-CLAUDE.md.yaml. Правь фрагменты в /home/aisee/.claude/codex/frag и запусти `lex build --codex /home/aisee/.claude/codex`; правку прямо в этом файле перенеси во фрагменты: `lex absorb --codex /home/aisee/.claude/codex <этот файл>` -->
 # Frontend (SPA)
 
 The Relay + React + Vite single-page app. (`aiarena/frontend/` is the older

@@ -1,3 +1,4 @@
+<!-- lex: собран из /home/aisee/.claude/codex/manifest/git-aiarena%2Dweb-CLAUDE.md.yaml. Правь фрагменты в /home/aisee/.claude/codex/frag и запусти `lex build --codex /home/aisee/.claude/codex`; правку прямо в этом файле перенеси во фрагменты: `lex absorb --codex /home/aisee/.claude/codex <этот файл>` -->
 # CLAUDE.md
 
 ## Working in this codebase
